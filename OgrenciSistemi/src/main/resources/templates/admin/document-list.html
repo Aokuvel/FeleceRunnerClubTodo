@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Document List</title>
+</head>
+
+<style>
+    .back{
+        background: url("images/adminbg.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+
+<body bgcolor= skyblue class="back">
+
+<div class="container">
+    <div class="row" style="background-color: white;">
+
+        <div th:if="${not #lists.isEmpty(dokumanlar)}">
+            <h3>Document List</h3>
+            <table class="table table-stripped">
+
+                <tr>
+                    <th>Document Name &emsp;</th>
+                </tr>
+
+                <tr th:each="dokuman : ${dokumanlar}">
+
+                    <td th:text="${dokuman.documentName}"></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

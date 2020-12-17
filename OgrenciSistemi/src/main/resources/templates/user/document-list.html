@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Document List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+    .back{
+        background: url("images/userbg.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+</style>
+<body class="back">
+
+    <div class="container">
+        <div class="row col-md-6 col-md-offset-2 custyle">
+
+            <form action="/user/sort" style="display: none;" method="post">
+                <input type="hidden" id="abc" name="abc" value="">
+            </form>
+
+            <table class="table table-stripped custab">
+                <thead>
+                <tr>
+                    <th>Id &emsp;</th>
+                    <th>Document Name &emsp;</th>
+                </tr>
+                </thead>
+
+                <tr th:each="document : ${document}"><!--buraya yönlendiriğimiz model nesnesinden user ı
+                     alıyor ve içindekileri atıyor her turda bir satır olarak -->
+                    <td th:text="${document.id}"></td>
+                    <td th:text="${document.documentName}"></td>
+                </tr>
+
+            </table>
+        </div>
+        <a href="/user/home" style="text-decoration: none;">Back to Home</a>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</body>
+</html>
